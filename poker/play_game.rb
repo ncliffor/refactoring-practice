@@ -2,8 +2,9 @@ require "./card.rb"
 require "./deck.rb"
 
 class PlayGame
-
-  attr_reader :cards
+  def initialize
+    @players = %w[Player-1 Player-2 Player-3 Player-4]
+  end
 
   def get_deck
     @deck = Deck.new
@@ -11,14 +12,22 @@ class PlayGame
   end
 
   def get_hand
-    4.times do  deal
+    4.times do deal
     end
   end
 
+  def player_name
+    puts "------------"
+    @players.shift(1)
+  end
+
+  def player_hand
+    @deck.cards.shift(5)
+  end
+
   def deal
-    puts "-----------"
-    hand = @deck.cards.sample(5)
-    puts hand
+    puts player_name
+    puts player_hand
   end
 end
 

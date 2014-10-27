@@ -13,5 +13,6 @@ class Deck
         @cards << number+suit
       end
     end
+    @cards.shuffle!
   end
 end
