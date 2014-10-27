@@ -15,7 +15,3 @@ class Deck
     end
   end
 end
-
-# deck = Deck.new
-# deck.generate
-# puts deck.cards

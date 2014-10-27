@@ -10,12 +10,18 @@ class PlayGame
     @deck.generate
   end
 
+  def get_hand
+    4.times do  deal
+    end
+  end
+
   def deal
-    hand = @deck.cards
-    puts hand.sample(5)
+    puts "-----------"
+    hand = @deck.cards.sample(5)
+    puts hand
   end
 end
 
 play_game = PlayGame.new
 play_game.get_deck
-play_game.deal
+play_game.get_hand
