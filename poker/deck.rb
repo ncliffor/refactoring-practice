@@ -5,23 +5,17 @@ class Deck
     @cards = []
   end
 
-  # def cards_suit
-  #   @suits = ["D", "H", "C", "S"]
-  # end
+  attr_reader :cards
 
-  def cards
+  def generate
     @numbers.each do |number|
       @suits.each do |suit|
-        @cards << [number + suit]
-        puts @cards
+        @cards << number+suit
       end
     end
   end
-
-  def play
-    
-  end
 end
 
-deck = Deck.new
-deck.cards
+# deck = Deck.new
+# deck.generate
+# puts deck.cards
