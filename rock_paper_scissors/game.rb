@@ -1,3 +1,6 @@
+require "./player"
+require "./judge"
+
 class Game
   CHOICES = ["R", "P", "S"]
   QUIT = ["press q to quit"]
@@ -7,6 +10,8 @@ class Game
     get_user_choice
     computer_chooses
     display_outcome
+    judge = Judge.new(@users_choice, @computers_play)
+    judge.who_won?
   end
 
   def give_user_choices
@@ -32,14 +37,13 @@ class Game
   end
 
   def computer_chooses
-    @computers_play = CHOICES.sample(1)
+    @computers_play = CHOICES.sample
   end
 
   def display_outcome
     puts "You played #{@users_choice}"
     puts "The computer played #{@computers_play}"
   end
-
 end
 
 game = Game.new
