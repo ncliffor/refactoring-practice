@@ -6,12 +6,8 @@ class Game
   QUIT = ["press q to quit"]
 
   def play
-    loop do
-      start_game
-      if @users_choice != "Q"
-        continue_game
-      else
-        puts "exiting"
+    loop do start_game
+      if @users_choice == "Q"
         break
       end
     end
@@ -19,10 +15,6 @@ class Game
 
   def start_game
     check_in_with_user
-  end
-
-  def continue_game
-    display_count
     computer_chooses
     display_outcome
     judge_outcome
