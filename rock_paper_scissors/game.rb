@@ -6,12 +6,31 @@ class Game
   QUIT = ["press q to quit"]
 
   def play
-    give_user_choices
-    get_user_choice
+    loop do
+      start_game
+      if @users_choice != "Q"
+        continue_game
+      else
+        puts "exiting"
+        break
+      end
+    end
+  end
+
+  def start_game
+    check_in_with_user
+  end
+
+  def continue_game
+    display_count
     computer_chooses
     display_outcome
-    judge = Judge.new(@users_choice, @computers_play)
-    judge.who_won?
+    judge_outcome
+  end
+
+  def check_in_with_user
+    give_user_choices
+    get_user_choice
   end
 
   def give_user_choices
@@ -43,6 +62,11 @@ class Game
   def display_outcome
     puts "You played #{@users_choice}"
     puts "The computer played #{@computers_play}"
+  end
+
+  def judge_outcome
+    judge = Judge.new(@users_choice, @computers_play)
+    judge.who_won?
   end
 end
 
