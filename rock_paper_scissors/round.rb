@@ -8,6 +8,11 @@ class Round
     run_outcome
   end
 
+  def won?
+    judge = Judge.new(@user_choice, @computer_choice)
+    judge.won?
+  end
+
   def check_in_with_user
     give_user_choices
     get_user_choice

@@ -10,6 +10,10 @@ class Judge
     @computer_choice = computer_choice
   end
 
+  def won?
+    user_choice == WINNING_MOVE_AGAINST[computer_choice]
+  end
+
   def who_won?
     check_winning_move_against ||
       tie ||
