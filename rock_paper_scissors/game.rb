@@ -2,13 +2,15 @@ require "./player"
 require "./judge"
 
 class Game
-  CHOICES = ["R", "P", "S"]
-  QUIT = ["press q to quit"]
+  CHOICES = Judge::WINNING_MOVE_AGAINST.keys
+  QUIT_MESSAGE = ["press q to quit"]
 
   def play
     loop do start_game
       if @users_choice == "Q"
         break
+      else
+        display_win_count
       end
     end
   end
@@ -16,8 +18,7 @@ class Game
   def start_game
     check_in_with_user
     computer_chooses
-    display_outcome
-    judge_outcome
+    run_outcome
   end
 
   def check_in_with_user
@@ -31,16 +32,9 @@ class Game
   end
 
   def options
-    print_options
-    print " |"
+    print "| #{CHOICES.join(" | ")} |"
     puts
-    puts QUIT
-  end
-
-  def print_options
-    CHOICES.each do |choice|
-      print " | " + choice
-    end
+    puts QUIT_MESSAGE
   end
 
   def get_user_choice
@@ -49,6 +43,11 @@ class Game
 
   def computer_chooses
     @computers_play = CHOICES.sample
+  end
+
+  def run_outcome
+    display_outcome
+    judge_outcome
   end
 
   def display_outcome
@@ -60,8 +59,11 @@ class Game
     judge = Judge.new(@users_choice, @computers_play)
     judge.who_won?
   end
+
+  def display_win_count
+    puts "----You've won so many times----"
+  end
 end
 
 game = Game.new
 game.play
-
