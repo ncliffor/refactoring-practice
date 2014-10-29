@@ -10,18 +10,18 @@ class Judge
     @computer_choice = computer_choice
   end
 
-  def outcome
-    [@user_choice, @computer_choice]
-  end
-
   def who_won?
     check_winning_move_against ||
       tie ||
       loser
   end
 
+  private
+
+  attr_reader :user_choice, :computer_choice
+
   def check_winning_move_against
-    if @user_choice == WINNIN_MOVE_AGAINST[@computer_choice]
+    if user_choice == WINNIN_MOVE_AGAINST[computer_choice]
       winner
     end
   end
