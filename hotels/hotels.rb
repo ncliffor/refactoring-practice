@@ -1,11 +1,12 @@
 require "csv"
 
 class Hotel
-  hotels = []
-  CSV.foreach('hotels.csv', headers: true) do |row|
-   hotels << row
+  def hotel_database
+    CSV.foreach('hotels.csv', headers: true) do |row|
+      puts row["Hotel"]
+    end
   end
-  
-  puts hotels["Hotel"]
-  
 end
+
+hotel = Hotel.new
+hotel.hotel_database
