@@ -24,9 +24,7 @@ class HotelDatabase
   private
 
   def populate_database(hotel, city)
-    if !@hotel_database[hotel]
       @hotel_database[hotel] = []
-    end
     @hotel_database[hotel] << city
   end
 end
