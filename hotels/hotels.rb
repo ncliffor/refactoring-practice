@@ -1,12 +1,16 @@
 require "csv"
+require "./hotel_database"
 
 class Hotel
-  def hotel_database
-    CSV.foreach('hotels.csv', headers: true) do |row|
-      puts row["Hotel"]
-    end
+  def search
+    hotel_database = HotelDatabase.new
+    hotel_database.read_hotel_database
+    hotel_database.search
+    # search_term = gets.chomp
+    # result = hotel_database.keys
+    # puts result
   end
 end
 
 hotel = Hotel.new
-hotel.hotel_database
+hotel.search

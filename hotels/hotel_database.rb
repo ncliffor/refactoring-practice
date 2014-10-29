@@ -1,5 +1,3 @@
-require "csv"
-
 class HotelDatabase
   def initialize
     @hotel_database = {}
@@ -7,7 +5,7 @@ class HotelDatabase
 
   def read_hotel_database
     set_hotel_database
-    puts @hotel_database
+    # puts @hotel_database
   end
 
   def set_hotel_database
@@ -18,6 +16,13 @@ class HotelDatabase
     end
   end
 
+  def search
+    search_term = gets.chomp
+    puts @hotel_database.fetch(search_term)
+  end
+
+  private
+
   def populate_database(hotel, city)
     if !@hotel_database[hotel]
       @hotel_database[hotel] = []
@@ -25,6 +30,3 @@ class HotelDatabase
     @hotel_database[hotel] << city
   end
 end
-
-hotel_database = HotelDatabase.new
-hotel_database.read_hotel_database
