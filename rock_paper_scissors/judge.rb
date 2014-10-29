@@ -1,4 +1,10 @@
 class Judge
+  WINNIN_MOVE_AGAINST = {
+    "R" => "P",
+    "P" => "S",
+    "S" => "R",
+  }
+
   def initialize(user_choice, computer_choice)
     @user_choice = user_choice
     @computer_choice = computer_choice
@@ -9,38 +15,26 @@ class Judge
   end
 
   def who_won?
-    rock_beats_scissors ||
-      scissors_beats_paper ||
-      paper_beats_rock ||
+    check_winning_move_against ||
       tie ||
       loser
   end
 
-  def rock_beats_scissors
-    if outcome == ["R", "S"]
-      winner
-    end
-  end
-
-  def scissors_beats_paper
-    if outcome == ["S", "P"]
-      winner
-    end
-  end
-
-  def paper_beats_rock
-    if outcome == ["P", "R"]
+  def check_winning_move_against
+    if @user_choice == WINNIN_MOVE_AGAINST[@computer_choice]
       winner
     end
   end
 
   def winner
     puts "WINNER"
+    true
   end
 
   def tie
     if @user_choice == @computer_choice
       puts "It's a tie..."
+      true
     end
   end
 
