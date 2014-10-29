@@ -9,7 +9,7 @@ class Round
   end
 
   def won?
-    judge = Judge.new(@user_choice, @computer_choice)
+    judge = Judge.new(@users_choice, @computers_play)
     judge.won?
   end
 

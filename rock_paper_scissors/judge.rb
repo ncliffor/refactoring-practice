@@ -11,7 +11,7 @@ class Judge
   end
 
   def won?
-    user_choice == WINNING_MOVE_AGAINST[computer_choice]
+    @user_choice == WINNING_MOVE_AGAINST[@computer_choice]
   end
 
   def who_won?

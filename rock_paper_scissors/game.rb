@@ -36,7 +36,7 @@ class Game
   end
 
   def announce_score
-    percentage = (@rounds_won.to_f / @rounds_played.to_f) * 100
+    percentage = (@rounds_won.to_f / @total_rounds.to_f) * 100
     puts "You've won #{percentage}% of games so far"
   end
 
