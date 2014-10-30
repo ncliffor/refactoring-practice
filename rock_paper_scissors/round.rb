@@ -26,11 +26,22 @@ class Round
   def options
     print "| #{CHOICES.join(" | ")} |"
     puts
-    puts QUIT_MESSAGE
   end
 
   def get_user_choice
     @users_choice = gets.chomp.upcase
+    check_user_input_for_valid_choice
+  end
+
+  def check_user_input_for_valid_choice
+    if !CHOICES.include?(@users_choice)
+      please_select_valid_choice_message
+    end
+  end
+
+  def please_select_valid_choice_message
+    puts "Please select a valid option"
+    get_user_choice
   end
 
   def computer_chooses

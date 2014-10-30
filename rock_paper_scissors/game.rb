@@ -28,9 +28,9 @@ class Game
   end
 
   def ask_to_play_again
-    puts "Play again? y/n"
+    puts "Play again? Press q to quit or any key to continue"
     answer = gets.chomp
-    if answer.downcase == "y"
+    if answer.downcase != "q"
       play
     end
   end
