@@ -3,8 +3,6 @@ class Listing
     @hotel = hotel
   end
 
-  private
-  
   attr_reader :hotel
 
   def print_details
@@ -14,5 +12,4 @@ class Listing
     puts "Single Rooms: #{hotel.single_beds}"
     puts "Double Rooms: #{hotel.double_beds}"
   end
-
 end

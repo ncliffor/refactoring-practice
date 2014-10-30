@@ -11,11 +11,11 @@ class NullHotel
     "not found"
   end
 
-  def number_of_singles
+  def single_beds
     "not found"
   end
 
-  def number_of_doubles
+  def double_beds
     "not found"
   end
 end
