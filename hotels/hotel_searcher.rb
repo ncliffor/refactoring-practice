@@ -20,7 +20,7 @@ class HotelSearcher
 
   def search
     puts @hotel_database.keys
-    puts "What are you searching for?"
+    puts "What would you like info for?"
     gets.chomp
   end
 end
