@@ -1,8 +1,10 @@
 class Judge
   WINNING_MOVE_AGAINST = {
-    "R" => "P",
-    "P" => "S",
-    "S" => "R",
+    "R" => ["P", "Sp"],
+    "P" => ["S", "L"],
+    "S" => ["R", "Sp"],
+    "L" => ["R", "S"],
+    "Sp" => ["L", "P"]
   }
 
   def initialize(user_choice, computer_choice)
@@ -26,7 +28,7 @@ class Judge
   attr_reader :user_choice, :computer_choice
 
   def check_winning_move_against
-    if user_choice == WINNING_MOVE_AGAINST[computer_choice]
+    if WINNING_MOVE_AGAINST[computer_choice].include?(@user_choice)
       winner
     end
   end
