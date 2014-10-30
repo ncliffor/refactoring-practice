@@ -29,7 +29,7 @@ class Round
   end
 
   def get_user_choice
-    @users_choice = gets.chomp.upcase
+    @users_choice = gets.chomp.capitalize
     check_user_input_for_valid_choice
   end
 

@@ -13,7 +13,7 @@ class Judge
   end
 
   def won?
-    @user_choice == WINNING_MOVE_AGAINST[@computer_choice]
+    WINNING_MOVE_AGAINST[@computer_choice].include?(@user_choice)
   end
 
   def who_won?
@@ -35,6 +35,14 @@ class Judge
 
   def winner
     puts "WINNER"
+    if @user_choice == "Sp"
+      spock_win_message
+    end
+    true
+  end
+
+  def spock_win_message
+    puts "You played as Spock and won! Live long and prosper"
     true
   end
 
