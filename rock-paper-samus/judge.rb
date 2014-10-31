@@ -1,8 +1,10 @@
 class Judge
   WINNING_MOVES_AGAINST = {
-    "Samus" => "Link",
-    "Link" => "Luigi",
-    "Luigi" => "Samus"
+    "Samus" => ["Link", "Dk"],
+    "Link" => ["Luigi", "Dk"],
+    "Luigi" => ["Samus", "Kirby"],
+    "Dk" => ["Luigi", "Kirby"],
+    "Kirby" => ["Link", "Samus"]
   }
 
   def initialize(player_choice, computer_move)
@@ -14,8 +16,8 @@ class Judge
 
   def who_won?
     if
-    player_choice == WINNING_MOVES_AGAINST[computer_move]
-    puts "You won"
+      WINNING_MOVES_AGAINST[computer_move].include?(player_choice)
+      puts "You won"
     else
       puts "you lose"
     end

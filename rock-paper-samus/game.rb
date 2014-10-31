@@ -1,33 +1,19 @@
-require "./judge"
+require "./round"
 
 class Game
-  CHOICES = Judge::WINNING_MOVES_AGAINST.keys
+  NUMBER_OF_ROUNDS = 4
 
   def play
-    new_round_options
-    player_choice
-    computer_move
-    judge_round_winner
+    play_new_round
   end
 
-  def new_round_options
-    puts "Welcome select a character..."
-    puts "| #{CHOICES.join(" | ")} |"
+  def play_new_round
+    NUMBER_OF_ROUNDS.times do
+    @round = Round.new
+    @round.play
+    end
   end
 
-  def player_choice
-    @player_choice = gets.chomp
-  end
-
-  def computer_move
-    @computer_move = CHOICES.sample
-    puts @computer_move
-  end
-
-  def judge_round_winner
-    judge = Judge.new(@player_choice, @computer_move)
-    judge.who_won?
-  end
 end
 
 game = Game.new
