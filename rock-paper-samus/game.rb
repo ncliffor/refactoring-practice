@@ -4,12 +4,13 @@ class Game
     "Link" => "Luigi",
     "Luigi" => "Samus"
   }
-
-
+  CHOICES = WINNING_MOVES_AGAINST.keys
 
   def play
-    puts "Welcome to rock, paper, samus"
-    
+    puts "Welcome select a character..."
+    puts "| #{CHOICES.join(" | ")} |"
+    gets.chomp
+
   end
 end
 
